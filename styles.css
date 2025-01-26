@@ -27,7 +27,7 @@ body {
 
 h1, h2 {
     font-size: 1.5em;
-    margin: 5px 0 10px 0;
+    margin: 5px 0 5px 0;
 }
 
 #startButton, #playAgainButton {
@@ -50,24 +50,37 @@ h1, h2 {
 
 #gameArea {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 #nalleImage {
-    width: 110%;
-    max-width: 330px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
-    margin: 0 20px;
+    margin: 0 auto 20px auto;
     border-radius: 10px;
+}
+
+#stars {
+    margin: 10px 0;
+    min-height: 40px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 5px;
 }
 
 .game-button {
@@ -92,16 +105,14 @@ h1, h2 {
 .game-button.true {
     background-color: #4CAF50;
     color: white;
-    margin-left: 40px;
 }
 
 .game-button.false {
     background-color: #f44336;
     color: white;
-    margin-right: 40px;
 }
 
-#stars, #finalStars {
+#finalStars {
     margin: 10px 0;
     min-height: 40px;
 }
@@ -112,15 +123,33 @@ h1, h2 {
     margin: 0 5px;
 }
 
+.arrow-container {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #nextArrow {
     width: 75px;
     height: 75px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .hidden {
     display: none;
+}
+
+.speaker-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin: 5px auto;
+}
+
+.speaker-icon:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -129,7 +158,6 @@ h1, h2 {
     }
 
     #nalleImage {
-        width: 100%;
         max-width: 300px;
     }
 
@@ -139,12 +167,8 @@ h1, h2 {
         font-size: 16px;
     }
 
-    .game-button.true {
-        margin-left: 20px;
-    }
-
-    .game-button.false {
-        margin-right: 20px;
+    .button-container {
+        gap: 20px;
     }
 
     #nextArrow {
@@ -168,12 +192,8 @@ h1, h2 {
         font-size: 14px;
     }
 
-    .game-button.true {
-        margin-left: 10px;
-    }
-
-    .game-button.false {
-        margin-right: 10px;
+    .button-container {
+        gap: 15px;
     }
 
     .star {

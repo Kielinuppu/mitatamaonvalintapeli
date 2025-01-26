@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalFeedback = document.getElementById('finalFeedback');
     const scoreText = document.getElementById('scoreText');
     const nextArrow = document.getElementById('nextArrow');
+    const speakerIcon = document.getElementById('speakerIcon');
 
     const statements = [
         { text: "HAME ON TEHTY KANKAASTA.", imageId: 1, correct: true },
@@ -48,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let questions = [];
         let selectedItems = new Set();
         
-        // Ensure at least 2 correct statements
         while (questions.length < 2) {
             let statement = statements[Math.floor(Math.random() * statements.length)];
             if (statement.correct && !selectedItems.has(statement.imageId)) {
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        // Fill remaining questions
         let shuffledStatements = [...statements];
         shuffleArray(shuffledStatements);
         
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadQuestionContent(questionObj) {
-        nalleImage.src = `kuva${questionObj.imageId}.png`;  
+        nalleImage.src = `kuva${questionObj.imageId}.png`;
         nalleImage.style.display = 'block';
         question.textContent = questionObj.text;
         nextArrow.classList.add('hidden');
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addStar() {
         const star = document.createElement('img');
-        star.src = 'tahti.png';  
+        star.src = 'tahti.png';
         star.classList.add('star');
         stars.appendChild(star);
     }
@@ -143,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         finalStars.innerHTML = '';
         for (let i = 0; i < score; i++) {
             const star = document.createElement('img');
-            star.src = 'tahti.png';  
+            star.src = 'tahti.png';
             star.classList.add('star');
             finalStars.appendChild(star);
         }
@@ -164,4 +163,5 @@ document.addEventListener('DOMContentLoaded', () => {
     trueButton.addEventListener('click', () => checkAnswer(true));
     falseButton.addEventListener('click', () => checkAnswer(false));
     nextArrow.addEventListener('click', nextQuestion);
+    speakerIcon.addEventListener('click', playQuestionAudio);
 });
